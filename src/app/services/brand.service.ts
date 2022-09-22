@@ -9,10 +9,11 @@ import { DataResponseModel } from '../models/dataResponseModel';
 })
 export class BrandService {
 
-  apiUrl:string ="https://localhost:44379/api/Brands/getAllBrands";
+  apiUrl:string ="https://localhost:44379/api/";
   constructor(private httpClient:HttpClient) { }
 
   getBrands():Observable<DataResponseModel<Brand>>{
-    return this.httpClient.get<DataResponseModel<Brand>>(this.apiUrl);
+    let newPath = this.apiUrl + "Brands/getAllBrands";
+    return this.httpClient.get<DataResponseModel<Brand>>(newPath);
   }
 }

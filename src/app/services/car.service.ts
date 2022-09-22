@@ -9,11 +9,17 @@ import { DataResponseModel } from '../models/dataResponseModel';
 })
 export class CarService {
 
-  private apiUrl: string = "https://localhost:44379/api/Cars/getCarsDetails"
+  private apiUrl: string = "https://localhost:44379/api/"
   constructor(private httpClient: HttpClient) { }
 
 
   getCars(): Observable<DataResponseModel<CarDto>> {
-    return this.httpClient.get<DataResponseModel<CarDto>>(this.apiUrl);
+    let newPath = this.apiUrl + "Cars/getCarsDetails"
+    return this.httpClient.get<DataResponseModel<CarDto>>(newPath);
   }
+  getCarsByBrand(brandId:number): Observable<DataResponseModel<CarDto>> {
+    let newPath = this.apiUrl + "Cars/getByBrandId?brandId="+brandId
+    return this.httpClient.get<DataResponseModel<CarDto>>(newPath);
+  }
+
 }
