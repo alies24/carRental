@@ -14,11 +14,11 @@ export class CarService {
 
 
   getCars(): Observable<DataResponseModel<CarDto>> {
-    let newPath = this.apiUrl + "Cars/getCarsDetails"
+    let newPath = this.apiUrl + "Cars/getCarDetails"
     return this.httpClient.get<DataResponseModel<CarDto>>(newPath);
   }
   getCarsByBrand(brandId:number): Observable<DataResponseModel<CarDto>> {
-    let newPath = this.apiUrl + "Cars/getByBrandId?brandId="+brandId
+    let newPath = this.apiUrl + "Cars/getByBrand?brandId="+brandId
     return this.httpClient.get<DataResponseModel<CarDto>>(newPath);
   }
 

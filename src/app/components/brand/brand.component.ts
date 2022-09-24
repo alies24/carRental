@@ -31,4 +31,12 @@ export class BrandComponent implements OnInit {
       return "list-group-item"
     }
   }
+  getAllBrandClass(){
+    if(this.currentBrand==null){
+      return "list-group-item list-group-item-action active"
+    }
+    else{
+      return "list-group-item"
+    }
+  }
 }

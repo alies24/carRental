@@ -13,7 +13,7 @@ export class BrandService {
   constructor(private httpClient:HttpClient) { }
 
   getBrands():Observable<DataResponseModel<Brand>>{
-    let newPath = this.apiUrl + "Brands/getAllBrands";
+    let newPath = this.apiUrl + "Brands/getAll";
     return this.httpClient.get<DataResponseModel<Brand>>(newPath);
   }
 }
