@@ -1,8 +1,8 @@
+import { DataResponseModel } from './../models/dataResponseModel';
 import { CarDto } from 'src/app/models/carDto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataResponseModel } from '../models/dataResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,10 @@ export class CarService {
   }
   getCarsByBrand(brandId:number): Observable<DataResponseModel<CarDto>> {
     let newPath = this.apiUrl + "Cars/getByBrand?brandId="+brandId
+    return this.httpClient.get<DataResponseModel<CarDto>>(newPath);
+  }
+  getCarsByColor(colorId:number):Observable<DataResponseModel<CarDto>>{
+    let newPath = this.apiUrl + "Cars/getByColor?colorId="+colorId;
     return this.httpClient.get<DataResponseModel<CarDto>>(newPath);
   }
 
